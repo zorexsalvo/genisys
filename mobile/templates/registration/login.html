@@ -1,4 +1,14 @@
 {% extends 'layout/base.html' %}
+
+{% block header %}
+<meta property="og:url" content="http://paluwagan.genisys.technology/login/" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ spiel }}" />
+<meta property="og:description" content="Lorem ipsum" />
+<meta property="og:image" content="{{ img_url }}" />
+{% endblock header %}
+
+
 {% block content %}
 {% load staticfiles %}
 <br><br>

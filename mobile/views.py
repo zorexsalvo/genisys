@@ -8,7 +8,33 @@ from social_django.models import UserSocialAuth
 from django.contrib.auth.views import LoginView
 
 import requests
+import random
 from . import config
+
+class CustomizedLoginView(LoginView):
+    def randomize_spiel(self):
+        print('Generating spiel...')
+        IMAGE_COLLECTION = [
+            'http://easyhometutor.com/educationtimes/wp-content/uploads/2015/08/Role-of-Youth-in-Social-Welfare-Activities.jpg',
+            'https://bcassets.starbucks.com/1612549662/1612549662_1140922324001_New-Orleans-589x331.jpg?pubId=1612549662',
+            'https://www.philippinetintaawards.com/wp-content/uploads/2016/04/BIR-Bayanihan-A2.jpg',
+            'https://c1.staticflickr.com/5/4141/4930852375_a85e4e5ae1_b.jpg',
+        ]
+
+        SPIEL_COLLECTION = [
+            'See us before you GO!',
+            'Help us build a loving world!',
+        ]
+
+        return [random.choice(IMAGE_COLLECTION), random.choice(SPIEL_COLLECTION)]
+
+    def get_context_data(self, **kwargs):
+        context = super(LoginView, self).get_context_data(**kwargs)
+        spiels = self.randomize_spiel()
+        context['img_url'] = spiels[0]
+        context['spiel'] = spiels[1]
+
+        return context
 
 class BaseView(TemplateView):
     def get_balance(self, fb_uid):

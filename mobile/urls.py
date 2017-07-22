@@ -6,7 +6,7 @@ from .views import *
 
 urlpatterns = [
     url(r'^ogp/$', OGP.as_view(), name='ogp'),
-    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^login/$', CustomizedLoginView.as_view(), name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^paluwagan/(?P<pid>[0-9]+)/$', login_required(MyPaluwagan.as_view()), name='paluwagan'),
     url(r'^oauth/', include('social_django.urls'), name='social'),
