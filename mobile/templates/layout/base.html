@@ -2,6 +2,14 @@
 <!DOCTYPE html>
 <html lang="en" class="">
   <head>
+    {% block header %}
+    <meta property="og:url" content="/login/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="When Great Minds Don’t Think Alike" />
+    <meta property="og:description" content="How much does culture influence creative thinking?" />
+    <meta property="og:image" content="{% static 'img/placeholder.png' %}" />
+    {% endblock header %}
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
     <title></title>
@@ -10,7 +18,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  </head>
+     </head>
   <body>
     {% block content %}{% endblock content %}
 
