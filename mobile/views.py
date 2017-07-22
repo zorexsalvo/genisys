@@ -5,6 +5,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 from social_django.models import UserSocialAuth
+from django.contrib.auth.views import LoginView
+
 
 import requests
 
@@ -22,9 +24,9 @@ class BaseView(TemplateView):
         return self.render_to_response(context)
 
 
-class LoginView(BaseView):
-    template_name = 'login.html'
-
+class LoginView(LoginView):
+    def get(self, request, *args, **kwargs):
+        pass
 
 class HomeView(BaseView):
     template_name = 'home.html'
