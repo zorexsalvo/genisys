@@ -10,7 +10,7 @@ def update_user(sender, user, request, **kwargs):
         fb = user.social_auth.get(provider='facebook').extra_data
 
 
-        response = requests.get(url.format(fb.get('id')))
+        response = requests.get(url.format(fb.get('id')), timeout=10)
         profile = response.json()
 
         payload = {
@@ -22,7 +22,8 @@ def update_user(sender, user, request, **kwargs):
         }
 
         response = requests.post(config.SERVICE_HOST + 'pinoypaluwagan/index.php/autoexec/registerUser',
-                                  data=payload)
+                                  data=payload,
+                                  timeout=10)
 
         print(payload)
         if response.status_code not in [200, 201]:

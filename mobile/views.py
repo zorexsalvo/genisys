@@ -41,7 +41,7 @@ class BaseView(TemplateView):
         try:
             url = config.SERVICE_HOST + '/pinoypaluwagan/index.php/autoexec/getUserBalance/{}'
 
-            response = requests.get(url.format(fb_uid))
+            response = requests.get(url.format(fb_uid), timeout=10)
             balance = response.json()
 
             return balance.get('availableAmount')
@@ -54,7 +54,7 @@ class BaseView(TemplateView):
         user = request.user
         fb = UserSocialAuth.objects.get(user=request.user.id)
 
-        response = requests.get(url.format(fb.uid))
+        response = requests.get(url.format(fb.uid), timeout=10)
         profile = response.json()
         context['profile_picture'] = profile['data']['url']
         context['balance'] = self.get_balance(fb.uid)
@@ -73,7 +73,7 @@ class MyPage(BaseView):
         try:
             url = config.SERVICE_HOST + '/pinoypaluwagan/index.php/autoexec/getUserBalance/{}'
 
-            response = requests.get(url.format(fb_uid))
+            response = requests.get(url.format(fb_uid), timeout=10)
             balance = response.json()
 
             return balance.get('availableAmount')
@@ -84,7 +84,7 @@ class MyPage(BaseView):
         try:
             print('Getting the paluwagan..')
             url = config.SERVICE_HOST + '/pinoypaluwagan/index.php/autoexec/getUserCrowds/{}'
-            response = requests.get(url.format(fb_uid))
+            response = requests.get(url.format(fb_uid), timeout=10)
             paluwagan = response.json()
 
             return response.json()['crowd']
@@ -99,7 +99,7 @@ class MyPage(BaseView):
         user = request.user
         fb = UserSocialAuth.objects.get(user=request.user.id)
 
-        response = requests.get(url.format(fb.uid))
+        response = requests.get(url.format(fb.uid), timeout=10)
         profile = response.json()
         context['profile_picture'] = profile['data']['url']
         context['balance'] = self.get_balance(fb.uid)
