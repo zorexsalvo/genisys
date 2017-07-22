@@ -2,11 +2,6 @@
 {% load staticfiles %}
 
 {% block header %}
-<meta property="og:url" content="http://paluwagan.genisys.technology/login/" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="{{ spiel }}" />
-<meta property="og:description" content="Lorem ipsum" />
-<meta property="og:image" content="{{ img_url }}" />
 {% endblock header %}
 
 {% block content %}
@@ -18,7 +13,7 @@
     <h5 class="grey-text text-darken-4"> <span class="thin">
         php
       </span>
-      1.00
+      {{ balance | floatformat:2 }}
     </h5>
   </div>
   <div class="col s12">
