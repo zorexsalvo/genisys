@@ -1,4 +1,5 @@
 {% extends 'layout/base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 {% include 'includes/nav.html' with page_title='Home' %}
@@ -21,50 +22,21 @@
 <div class="row recent-transactions grey lighten-2">
   <div class="col s12">
     <span class="light">
-      Recent Transactions
+      Available Paluwagans
     </span>
   </div>
 </div>
+
 <ul class="collection">
-  <li class="collection-item avatar avatar-rd">
-    <span class="title light">Deposit</span><br>
-    <span class="light">07 Jul | 06:22pm</span>
-    <div class="secondary-content">
-      <span class="title light">+1.00</span><br>
-      <span class="light"></span>
-    </div>
-  </li>
-  <li class="collection-item avatar avatar-rd">
-    <span class="title light">Deposit</span><br>
-    <span class="light">07 Jul | 06:22pm</span>
-    <div class="secondary-content">
-      <span class="title light">+1.00</span><br>
-      <span class="light"></span>
-    </div>
-  </li>
-  <li class="collection-item avatar avatar-rd">
-    <span class="title light">Deposit</span><br>
-    <span class="light">07 Jul | 06:22pm</span>
-    <div class="secondary-content">
-      <span class="title light">+1.00</span><br>
-      <span class="light"></span>
-    </div>
-  </li>
-  <li class="collection-item avatar avatar-rd">
-    <span class="title light">Deposit</span><br>
-    <span class="light">07 Jul | 06:22pm</span>
-    <div class="secondary-content">
-      <span class="title light">+1.00</span><br>
-      <span class="light"></span>
-    </div>
-  </li>
-  <li class="collection-item avatar avatar-rd">
-    <span class="title light">Deposit</span><br>
-    <span class="light">07 Jul | 06:22pm</span>
-    <div class="secondary-content">
-      <span class="title light">+1.00</span><br>
-      <span class="light"></span>
-    </div>
+  <li class="collection-item avatar">
+    <img src="{% static 'img/placeholder.png' %}" alt="" class="circle">
+    <p><i class="material-icons">people</i> 100
+    <p><i class="material-icons">attach_money</i>100
+    <p><i class="material-icons">insert_chart</i>89.9 /wk
+
+    <a href="#!" class="secondary-content">P100.00</a>
   </li>
 </ul>
+
+
 {% endblock content %}

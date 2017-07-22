@@ -20,7 +20,7 @@ class HomeView(TemplateView):
         url = 'https://graph.facebook.com/v2.10/{}/picture?redirect=0'
         user = request.user
         fb = UserSocialAuth.objects.get(user=request.user.id)
-        print(user.social_auth)
+
         response = requests.get(url.format(fb.uid))
         profile = response.json()
         context['profile_picture'] = profile['data']['url']
