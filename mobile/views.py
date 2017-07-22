@@ -12,12 +12,15 @@ from . import config
 
 class BaseView(TemplateView):
     def get_balance(self, fb_uid):
-        url = config.SERVICE_HOST + '/pinoypaluwagan/index.php/autoexec/getUserBalance/{}'
+        try:
+            url = config.SERVICE_HOST + '/pinoypaluwagan/index.php/autoexec/getUserBalance/{}'
 
-        response = requests.get(url.format(fb_uid))
-        balance = response.json()
+            response = requests.get(url.format(fb_uid))
+            balance = response.json()
 
-        return balance.get('availableAmount')
+            return balance.get('availableAmount')
+        except Exception as e:
+            return 0
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
