@@ -8,13 +8,7 @@ from social_django.models import UserSocialAuth
 
 import requests
 
-class LoginView(TemplateView):
-    template_name = 'login.html'
-
-
-class HomeView(TemplateView):
-    template_name = 'home.html'
-
+class BaseView(TemplateView):
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
         url = 'https://graph.facebook.com/v2.10/{}/picture?redirect=0'
@@ -28,11 +22,19 @@ class HomeView(TemplateView):
         return self.render_to_response(context)
 
 
-class MyPage(TemplateView):
+class LoginView(BaseView):
+    template_name = 'login.html'
+
+
+class HomeView(BaseView):
+    template_name = 'home.html'
+
+    
+class MyPage(BaseView):
     template_name = 'mypage.html'
 
 
-class MyPaluwagan(TemplateView):
+class MyPaluwagan(BaseView):
     template_name = 'paluwagan.html'
 
 
