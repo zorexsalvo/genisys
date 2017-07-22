@@ -18,8 +18,9 @@ class HomeView(TemplateView):
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
         url = 'https://graph.facebook.com/v2.10/{}/picture?redirect=0'
-
+        user = request.user
         fb = UserSocialAuth.objects.get(user=request.user.id)
+        print(user.social_auth)
         response = requests.get(url.format(fb.uid))
         profile = response.json()
         context['profile_picture'] = profile['data']['url']
@@ -29,3 +30,7 @@ class HomeView(TemplateView):
 
 class MyPage(TemplateView):
     template_name = 'mypage.html'
+
+
+class MyPaluwagan(TemplateView):
+    template_name = 'paluwagan.html'
