@@ -69,9 +69,74 @@ class HomeView(BaseView):
 class MyPage(BaseView):
     template_name = 'mypage.html'
 
+    def get_balance(self, fb_uid):
+        try:
+            url = config.SERVICE_HOST + '/pinoypaluwagan/index.php/autoexec/getUserBalance/{}'
+
+            response = requests.get(url.format(fb_uid))
+            balance = response.json()
+
+            return balance.get('availableAmount')
+        except Exception as e:
+            return 0
+
+    def get_paluwagan(self, fb_uid):
+        try:
+            print('Getting the paluwagan..')
+            url = config.SERVICE_HOST + '/pinoypaluwagan/index.php/autoexec/getUserCrowds/{}'
+            response = requests.get(url.format(fb_uid))
+            paluwagan = response.json()
+
+            return response.json()['crowd']
+        except Exception as e:
+            print('Return empty array...')
+            print(str(e))
+            return []
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        url = 'https://graph.facebook.com/v2.10/{}/picture?redirect=0'
+        user = request.user
+        fb = UserSocialAuth.objects.get(user=request.user.id)
+
+        response = requests.get(url.format(fb.uid))
+        profile = response.json()
+        context['profile_picture'] = profile['data']['url']
+        context['balance'] = self.get_balance(fb.uid)
+        context['paluwagan'] = self.get_paluwagan(fb.uid)
+
+        return self.render_to_response(context)
+
+
 
 class MyPaluwagan(BaseView):
     template_name = 'paluwagan.html'
+
+    def randomize_spiel(self):
+        print('Generating spiel...')
+        IMAGE_COLLECTION = [
+            'http://easyhometutor.com/educationtimes/wp-content/uploads/2015/08/Role-of-Youth-in-Social-Welfare-Activities.jpg',
+            'https://bcassets.starbucks.com/1612549662/1612549662_1140922324001_New-Orleans-589x331.jpg?pubId=1612549662',
+            'https://www.philippinetintaawards.com/wp-content/uploads/2016/04/BIR-Bayanihan-A2.jpg',
+            'https://c1.staticflickr.com/5/4141/4930852375_a85e4e5ae1_b.jpg',
+        ]
+
+        SPIEL_COLLECTION = [
+            'See us before you GO!',
+            'Help us build a loving world!',
+        ]
+
+        return [random.choice(IMAGE_COLLECTION), random.choice(SPIEL_COLLECTION)]
+
+    def get_context_data(self, **kwargs):
+        context = super(MyPaluwagan, self).get_context_data(**kwargs)
+        spiels = self.randomize_spiel()
+        context['img_url'] = spiels[0]
+        context['spiel'] = spiels[1]
+
+        return context
+
+
 
 
 class OGP(TemplateView):

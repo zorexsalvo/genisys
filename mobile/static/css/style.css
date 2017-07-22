@@ -62,3 +62,6 @@
     width: 90px !important;
     height: 90px !important;
 }
+.creator {
+    border-radius: 0% !important;
+}
