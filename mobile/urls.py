@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .views import *
 
 urlpatterns = [
+    url(r'^ogp/$', OGP.as_view(), name='ogp'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^oauth/', include('social_django.urls'), name='social'),

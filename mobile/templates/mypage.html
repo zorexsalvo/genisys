@@ -4,16 +4,7 @@
 {% block content %}
 {% include 'includes/nav.html' with page_title='MyAccount' %}
 
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) return;
-js = d.createElement(s); js.id = id;
-js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=615318612149441";
-fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
+{% include 'includes/fb-root.html' %}
 
 <div class="row center">
   <br>
@@ -46,17 +37,7 @@ fjs.parentNode.insertBefore(js, fjs);
     <p><i class="material-icons">attach_money</i>100
     <p><i class="material-icons">insert_chart</i>89.9 /wk
 
-    <div class="fb-share-button secondary-content"
-         data-href="https://developers.facebook.com/docs/plugins/"
-         data-layout="button"
-         data-size="small"
-         data-mobile-iframe="true">
-      <a class="fb-xfbml-parse-ignore"
-         target="_blank"
-         href="localhost:8000/">
-        Share
-      </a>
-    </div>
+    {% include 'includes/fb-share-button.html' %}
 
   </li>
 </ul>

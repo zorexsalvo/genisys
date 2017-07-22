@@ -34,3 +34,7 @@ class MyPage(TemplateView):
 
 class MyPaluwagan(TemplateView):
     template_name = 'paluwagan.html'
+
+
+class OGP(TemplateView):
+    template_name = 'ogp.html'
