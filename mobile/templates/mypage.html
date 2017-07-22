@@ -33,17 +33,17 @@
 <ul class="collection">
   {% for bangka in paluwagan %}
   <li class="collection-item avatar">
-      <img  src="{% if bangka.imageUrl == None %}
+      <img  src="{% if bangka.avatarURL == None %}
                     {% static '/img/placeholder.png' %}
                  {% else %}
-                    {{ bangka.imageUrl }}
+                    {{ bangka.avatarURL }}
                  {% endif %}"
             alt="" class="circle creator">
     <p><i class="material-icons">people</i> {{ bangka.inviteCount }}
     <p><i class="material-icons">attach_money</i>100
     <p><i class="material-icons">title</i>{{ bangka.crowdName }}
 
-    {% include 'includes/fb-share-button.html' %}
+    {% include 'includes/fb-share-button.html' with bangka_id=bangka.crowdID %}
     <a class="btn tertiary-content" href="/paluwagan/{{ bangka.crowdID }}/">
         Open
     </a>
