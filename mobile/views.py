@@ -40,3 +40,7 @@ class MyPaluwagan(BaseView):
 
 class OGP(TemplateView):
     template_name = 'ogp.html'
+
+
+class HowTo(BaseView):
+    template_name = 'howto.html'

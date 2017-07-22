@@ -150,3 +150,8 @@ SOCIAL_AUTH_PIPELINE = (
         'social_core.pipeline.user.user_details',
         'social_core.pipeline.social_auth.associate_by_email',
 )
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+        'fields': 'id,name,email', 
+        }
