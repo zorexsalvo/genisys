@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block content %}
-{% include 'includes/nav.html' with page_title='MyAccount' %}
+{% include 'includes/nav.html' with page_title='' %}
 
 <div class="row center">
   <br>
@@ -15,7 +15,7 @@
   </div>
   <div class="col s12">
     <span class="light">
-      Total Earnings
+      Available Balance
     </span>
   </div>
 </div>
@@ -27,16 +27,8 @@
     </span>
   </div>
 </div>
-
-<ul class="collection">
-  <li class="collection-item avatar">
-    <img src="{% static 'img/placeholder.png' %}" alt="" class="circle">
-    <p><i class="material-icons">people</i> 100
-    <p><i class="material-icons">attach_money</i>100
-    <p><i class="material-icons">insert_chart</i>89.9 /wk
-    <a href="#!" class="secondary-content"><i class="material-icons">share</i></a>
-  </li>
-</ul>
-
+<br>
+{% include 'includes/chart.html' %}
+<div id="piechart" style="height: 300px;"></div>
 
 {% endblock content %}

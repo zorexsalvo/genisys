@@ -44,6 +44,20 @@
 .secondary-content {
     color: black;
 }
+.tertiary-content {
+    position: absolute;
+    top: 45px;
+    right: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: none;
+    width: 60px;
+    height: 19px;
+    padding: 0;
+    padding-top: 3px;
+    line-height: normal;
+ }
 .circle {
     width: 90px !important;
     height: 90px !important;
