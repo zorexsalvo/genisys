@@ -1,0 +1,42 @@
+{% extends 'layout/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+{% include 'includes/nav.html' with page_title='MyAccount' %}
+
+<div class="row center">
+  <br><br>
+  <div class="col s12">
+    <h5 class="grey-text text-darken-4"> <span class="thin">
+        php
+      </span>
+      1.00
+    </h5>
+  </div>
+  <div class="col s12">
+    <span class="light">
+      Available Balance
+    </span>
+  </div>
+</div>
+
+<div class="row recent-transactions grey lighten-2">
+  <div class="col s12">
+    <span class="light">
+      My Paluwagan
+    </span>
+  </div>
+</div>
+
+<ul class="collection">
+  <li class="collection-item avatar">
+    <img src="{% static 'img/placeholder.png' %}" alt="" class="circle">
+    <p><i class="material-icons">people</i> 100
+    <p><i class="material-icons">attach_money</i>100
+    <p><i class="material-icons">insert_chart</i>89.9
+    <a href="#!" class="secondary-content"><i class="material-icons">share</i></a>
+  </li>
+</ul>
+
+
+{% endblock content %}

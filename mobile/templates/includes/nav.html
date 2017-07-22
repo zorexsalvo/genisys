@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<nav class="grey darken-4" role="navigation">
+  <div class="nav-wrapper">
+    <a class="page-title">{{ page_title }}</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#">Navbar Link</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav grey darken-4">
+      <div class="row center account-header">
+        <img class="circle  responsive-img"
+             src="{% if profile_picture %}
+                    {{ profile_picture }}
+                  {% else %}
+                    {% static 'img/placeholder.png' %}
+                  {% endif %}"
+              width="70px">
+        <h6 class="grey-text text-lighten-3">{{ user }}</h6>
+      </div>
+      <li>
+        <a href="/" class="grey-text text-lighten-3">
+          <i class="tiny material-icons grey-text text-lighten-3">home</i>
+          <span class="light">HOME</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="/myaccount/" class="grey-text text-lighten-3">
+          <i class="tiny material-icons grey-text text-lighten-3">account_circle</i>
+          <span class="light">MY ACCOUNT</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="grey-text text-lighten-3">
+          <i class="tiny material-icons grey-text text-lighten-3">navigation</i>
+          <span class="light">SETTINGS</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="grey-text text-lighten-3">
+          <i class="tiny material-icons grey-text text-lighten-3">person_pin</i>
+          <span class="light">HELP</span>
+        </a>
+      </li>
+      <li>
+        <a href="/logout/" class="grey-text text-lighten-3">
+          <i class="tiny material-icons grey-text text-lighten-3">power_settings_new</i>
+          <span class="light">LOGOUT</span>
+        </a>
+      </li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
+

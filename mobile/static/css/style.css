@@ -1,0 +1,50 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+#login-banner {
+}
+#login-banner .header {
+  margin-top: 50px;
+}
+.account-header {
+    margin: 20px;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    line-height: 0px;
+}
+.splash-screen {
+    background-color: #1b5e20;
+}
+.container {
+    width: 75%;
+}
+.recent-transactions {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: -10px;
+}
+.avatar-rd {
+    padding-left: 20px !important;
+    min-height: 0px !important;
+}
+.secondary-content {
+    color: black;
+}
+.circle {
+    width: 90px !important;
+    height: 90px !important;
+}
+.avatar {
+    padding-left: 120px !important;
+}
