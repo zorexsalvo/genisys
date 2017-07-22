@@ -7,6 +7,8 @@ from django.views.generic import TemplateView
 from social_django.models import UserSocialAuth
 from django.contrib.auth.views import LoginView
 
+from django.http import HttpResponseRedirect
+
 import requests
 import random
 from . import config
@@ -35,6 +37,13 @@ class CustomizedLoginView(LoginView):
         context['spiel'] = spiels[1]
 
         return context
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated() and request.GET.get('next') is None:
+            return HttpResponseRedirect('/')
+        elif request.user.is_authenticated() and request.GET.get('next'):
+            return HttpResponseRedirect(request.GET.get('next'))
+        return self.render_to_response(self.get_context_data())
 
 class BaseView(TemplateView):
     def get_balance(self, fb_uid):
