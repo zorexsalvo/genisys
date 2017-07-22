@@ -34,6 +34,9 @@
     padding-bottom: 5px;
     margin-bottom: -10px;
 }
+.avatar {
+    padding-left: 120px !important;
+}
 .avatar-rd {
     padding-left: 20px !important;
     min-height: 0px !important;
@@ -44,7 +47,4 @@
 .circle {
     width: 90px !important;
     height: 90px !important;
-}
-.avatar {
-    padding-left: 120px !important;
 }
