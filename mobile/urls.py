@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^howto/', login_required(HowTo.as_view()), name='howto'),
     url(r'^$', login_required(HomeView.as_view()), name='home'),
     url(r'^myaccount/$', login_required(MyPage.as_view()), name='mypage'),
+    url(r'^ogp/$', OGP.as_view(), name='ogp'),
 ]
