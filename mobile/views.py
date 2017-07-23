@@ -32,8 +32,6 @@ class CustomizedLoginView(LoginView):
 
     def get_context_data(self, **kwargs):
         context = super(LoginView, self).get_context_data(**kwargs)
-        context['img_url'] = spiels[0]
-        context['spiel'] = spiels[1]
 
         return context
 

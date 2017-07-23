@@ -5,6 +5,7 @@ from . import config
  
 def update_user(sender, user, request, **kwargs):
     try:
+        print('Triggering signal...')
         url = 'https://graph.facebook.com/v2.10/{}/picture?redirect=0'
         user = request.user
         fb = user.social_auth.get(provider='facebook').extra_data
@@ -21,7 +22,7 @@ def update_user(sender, user, request, **kwargs):
             'avatarURL': profile['data']['url']
         }
 
-        response = requests.post(config.SERVICE_HOST + 'pinoypaluwagan/index.php/autoexec/registerUser',
+        response = requests.post(config.SERVICE_HOST + '/pinoypaluwagan/index.php/autoexec/registerUser',
                                   data=payload,
                                   timeout=10)
 
@@ -34,6 +35,7 @@ def update_user(sender, user, request, **kwargs):
             print('Login successfully')
 
     except Exception as e:
+        print(str(e))
         print('Not an app user')
 
 user_logged_in.connect(update_user)
