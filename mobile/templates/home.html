@@ -4,7 +4,7 @@
 {% block content %}
 {% include 'includes/nav.html' with page_title='Home' %}
 <div class="row center">
-  <br><br>
+  <br>
   <div class="col s12">
     <h5 class="grey-text text-darken-4"> <span class="thin">
         php
@@ -35,9 +35,9 @@
                     {{ bangka.avatarURL }}
                  {% endif %}"
             alt="" class="circle creator">
-    <p><i class="material-icons">people</i> {{ bangka.memberCount }}
-    <p><i class="material-icons">attach_money</i>{{ bangka.memberAmount }}
     <p><i class="material-icons">title</i>{{ bangka.crowdName }}
+    <p><i class="material-icons">people</i> {{ bangka.memberCount }}
+    <p><i class="material-icons">account_balance_wallet</i> P{{ bangka.memberAmount|floatformat:2 }}
 
   </li>
   {% endfor %}

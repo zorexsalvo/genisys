@@ -40,7 +40,7 @@
                  {% endif %}"
             alt="" class="circle creator">
     <p><i class="material-icons">people</i> {{ bangka.inviteCount }}
-    <p><i class="material-icons">attach_money</i>100
+    <p><i class="material-icons">account_balance_wallet</i> P{{ bangka.memberAmount|floatformat:2 }}
     <p><i class="material-icons">title</i>{{ bangka.crowdName }}
 
     {% include 'includes/fb-share-button.html' with paluwaganUrl="http://paluwagan.genisys.technology/login/?next=/paluwagan/"|add:bangka.nodeID %}
