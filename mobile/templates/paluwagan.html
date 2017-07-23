@@ -38,11 +38,20 @@
 </div>
 <br>
 {% include 'includes/chart.html' %}
-<div id="piechart" style="height: 300px;"></div>
+<div id="piechart" style="height: 250px;"></div>
 
 <div class="row center">
-    <div class="col s12">
-        <h5>How It Works?</h5>
+   <a class="waves-effect waves-light btn modal-trigger green darken-3" href="#modal1">Join</a>
+</div>
+
+<div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>{% include 'includes/tnc.html'  %}</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Decline</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
     </div>
 </div>
 
