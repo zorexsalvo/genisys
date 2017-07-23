@@ -74,7 +74,23 @@ class BaseView(TemplateView):
 class HomeView(BaseView):
     template_name = 'home.html'
 
-    
+    def get_paluwagan(self):
+        try:
+            url = config.SERVICE_HOST + '/pinoypaluwagan/index.php/autoexec/getCrowds'
+
+            response = requests.get(url, timeout=10)
+            paluwagans = response.json()
+            return paluwagans['crowd']
+        except Exception as e:
+            return []
+
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context['paluwagans'] = self.get_paluwagan()
+
+        return context
+
+
 class MyPage(BaseView):
     template_name = 'mypage.html'
 

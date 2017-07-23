@@ -28,18 +28,23 @@
 </div>
 
 <ul class="collection">
+  {% for bangka in paluwagans %}
   <li class="collection-item avatar">
-    <img src="{% static 'img/placeholder.png' %}" alt="" class="circle">
-    <p><i class="material-icons">people</i> 100
-    <p><i class="material-icons">attach_money</i>100
-    <p><i class="material-icons">insert_chart</i>89.9 /wk
+      <img  src="{% if bangka.avatarURL == None %}
+                    {% static '/img/placeholder.png' %}
+                 {% else %}
+                    {{ bangka.avatarURL }}
+                 {% endif %}"
+            alt="" class="circle creator">
+    <p><i class="material-icons">people</i> {{ bangka.memberCount }}
+    <p><i class="material-icons">attach_money</i>{{ bangka.memberAmount }}
+    <p><i class="material-icons">title</i>{{ bangka.crowdName }}
 
-    <a href="#!" class="secondary-content">P100.00</a>
-    <a class="btn tertiary-content green darken-3" href="/paluwagan/12345/">
+    <a class="btn tertiary-content green darken-3 home-content" href="/paluwagan/{{ bangka.crowdID }}/">
         Open
     </a>
-
   </li>
+  {% endfor %}
 </ul>
 
 
