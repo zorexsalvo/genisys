@@ -1,12 +1,12 @@
 <div class="fb-share-button secondary-content"
-     data-href="http://paluwagan.genisys.technology/login/?next=/paluwagan/{{ bangka_id }}/"
+     data-href="{{ paluwaganUrl }}"
      data-layout="button"
      data-size="small"
      data-mobile-iframe="true">
   <a class="fb-xfbml-parse-ignore"
      target="_blank"
      href="https://www.facebook.com/sharer/sharer.php?
-     u={{ "http://paluwagan.genisys.technology/login/?next=/paluwagan/&src=sdkpreparse"|urlencode }}">
+     u={{ paluwaganurl|add:'&src=sdkpreparse'|urlencode }}">
     Share
   </a>
 </div>
