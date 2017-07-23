@@ -1,31 +1,47 @@
 {% extends 'layout/base.html' %}
 {% load staticfiles %}
 
-{% block content %}
-{% include 'includes/nav.html' with page_title='Help' %}
+{% block header %}
+<title>Your Website Title</title>
+<!-- You can use Open Graph tags to customize link previews.
+  Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+  <meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Your Website Title" />
+  <meta property="og:description"   content="Your description" />
+  <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
+  {% endblock header %}
 
-<div class="container">
+{% block content %}
+{% include 'includes/nav.html' with page_title='Frequently Asked Questions' %}
+
 <div class="row">
   <br>
   <div class="col s12 center">
-    <h4>Frequently Asked Questions</h4>
+    
   </div>
-  <div class="col s12">
-    <ol>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-      <br>
-      <li>Etiam sodales orci non sem imperdiet auctor.</li>
-      <br>
-      <li>Integer luctus sem a risus venenatis, eget iaculis libero condimentum.</li>
-      <br>
-      <li>Duis iaculis justo sit amet diam rhoncus, vel consectetur enim consectetur.</li>
-      <br>
-      <li>In finibus justo mattis felis imperdiet, eget accumsan felis pharetra.</li>
-      <br>
-      <li>Ut nec ante mollis, laoreet metus id, egestas nulla.</li>
+  <div class="col s12 center">
+    <h5>How to Join and Earn:</h5>
+    <span class="bold">Requirements:</span>
+    <ul class="collection">
+      <li class="collection-item">Smartphone installed with Genisys MyPaluwagan app and Facebook</li>
+      <li class="collection-item">Joining fee of P100</li>
+    </ul>
+    <br>
+    <h5>How do I join?</h5>
+    <span>Join Genisys MyPaluwagan in 2 easy steps:</span>
+    <ol class="left-align">
+      <li>Click on the link containing the invitation to join Genisys MyPaluwagan posted by existing Genisys MyPaluwagan Contributors in Facebook feeds.</li>
+      <li>Pay the joining fee amounting to P100.</li>
     </ol>
+    <br>
+    <h5>How can I earn from Genisys MyPaluwagan?</h5>
+    Share invitation to join Genisys MyPaluwagan in your Facebook wall. When your friends successfully join Genisys MyPaluwagan using your posted invitation, you will earn P100 (joining fee) per joiner. You will earn more rewards when your friends successfully join Genisys MyPaluwagan via your Facebook post!
+    <br> 
+    <br>
+    <h5>What if I didn’t receive any invitation in Facebook to join Genisys MyPaluwagan?</h5>
+    You can only access the Genisys app by clicking the Genisys MyPaluwagan invitation link shared by your friends in Facebook. 
   </div>
-</div>
 </div>
 
 {% endblock content %}
