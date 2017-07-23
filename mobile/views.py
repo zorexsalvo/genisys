@@ -130,9 +130,38 @@ class MyPage(BaseView):
         return self.render_to_response(context)
 
 
-
 class MyPaluwagan(BaseView):
     template_name = 'paluwagan.html'
+
+    def get_balance(self, fb_uid):
+        try:
+            url = config.SERVICE_HOST + '/pinoypaluwagan/index.php/autoexec/getUserBalance/{}'
+
+            response = requests.get(url.format(fb_uid), timeout=10)
+            balance = response.json()
+
+            return balance.get('availableAmount')
+        except Exception as e:
+            return 0
+
+    def get_node_details(self, fbid, pid):
+        try:
+            url = config.SERVICE_HOST + '/pinoypaluwagan/index.php/autoexec/getNode/{}/{}'.format(pid, fbid)
+            response = requests.get(url, timeout=10)
+            print(response.json())
+            return response.json()
+        except Exception as e:
+            print(str(e))
+            print('cantconnect?')
+            return {}
+
+    def get(self, request, pid, *args, **kwargs):
+        context = super(MyPaluwagan, self).get_context_data(**kwargs)
+
+        fb = UserSocialAuth.objects.get(user=request.user.id)
+        context['node'] = self.get_node_details(fb.uid, pid)
+        context['balance'] = self.get_balance(fb.uid)
+        return self.render_to_response(context)
 
 
 class OGP(TemplateView):
